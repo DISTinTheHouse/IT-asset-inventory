@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller build artifacts
+build/
+dist/
+*.spec
+
+# Inventory data
+*.json
+/inventario_laptops/JSONs/
+INVENTARIO_LAPTOPS.xlsx
+
+# Logs or temporary files
+*.log
+*.tmp
+
+# VS Code and other editor configs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
