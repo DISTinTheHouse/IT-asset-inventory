@@ -8,6 +8,9 @@ import os
 import getpass
 import subprocess
 
+def clear_console():
+    os.system("cls" if platform.system() == "Windows" else "clear")
+
 def get_bios_info():
     try:
         manufacturer = subprocess.check_output("wmic computersystem get manufacturer", shell=True).decode().split("\n")[1].strip()
@@ -95,8 +98,18 @@ def get_system_info():
     return info
 
 if __name__ == "__main__":
+    clear_console()
+    print("==============================")
+    print("   INVENTARIO DE EQUIPO")
+    print("==============================\n")
+
     data = get_system_info()
     filename = f"INVENTARIO_{socket.gethostname()}.json"
+
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
-    print(f"[✓] Inventario guardado en: {filename}")
+
+    print(f"[✓] Inventario generado con éxito.")
+    print(f"[📁] Archivo creado: {filename}")
+    print("\nPuede cerrar esta ventana o presione ENTER para salir.")
+    input()
